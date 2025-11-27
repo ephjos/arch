@@ -5,9 +5,9 @@ My arch linux installation scripts and configs. Pulls in my [dotfiles](https://g
 ## Getting started
 
 1. Boot into an arch iso
-2. `curl https://raw.githubusercontent.com/ephjos/arch/refs/heads/main/install.sh | sh` and run through the installer
+2. `curl -L0 ephjos.com/i.sh | sh` and run through the installer
 3. Select "chroot into the installation" at the end of archinstall
-4. `curl https://raw.githubusercontent.com/ephjos/arch/refs/heads/main/postinstall.sh | sh`
+4. `curl -L0 ephjos.com/p.sh | sh`
 5. Reboot
 
 ## Development
