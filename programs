@@ -31,13 +31,14 @@ man-db
 mediainfo
 mesa
 mpv
-networkmanager
 neovim
+networkmanager
 newsboat
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 openbox
+openssh
 pandoc-bin
 pipewire
 python
@@ -49,6 +50,7 @@ rofi
 socat
 swayimg
 tmux
+tree
 unrar
 unzip
 veracrypt
