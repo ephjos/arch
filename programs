@@ -28,6 +28,7 @@ libnotify
 libva-intel-driver
 libva-mesa-driver
 man-db
+man-pages
 mediainfo
 mesa
 mpv
@@ -42,6 +43,7 @@ openssh
 pandoc-bin
 pipewire
 python
+qemu-full
 qrencode
 qt5-wayland
 qt6-wayland
@@ -49,10 +51,12 @@ ripgrep
 rofi
 socat
 swayimg
+tlp
 tmux
 tree
 unrar
 unzip
+upower
 veracrypt
 vi
 vulkan-intel

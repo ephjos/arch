@@ -1,10 +1,31 @@
-#!/bin/bash
+#!/bin/sh
 #
 
-# Constants
-dotfilesrepo="https://github.com/ephjos/dotfiles.git"
-#programsfile="http://10.0.2.2:8000/programs"
-programsfile="https://raw.githubusercontent.com/ephjos/arch/refs/heads/main/programs"
+dotfiles_repo="https://github.com/ephjos/dotfiles.git"
+programs_file="https://raw.githubusercontent.com/ephjos/arch/refs/heads/main/programs"
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --dev)
+            programs_file="http://10.0.2.2:8000/programs"
+            ;;
+        --help|-h)
+            echo "Usage: $0 [OPTIONS]"
+            echo
+            echo "Options:"
+            echo "  --dev        Pull install files from local"
+            echo "  -h, --help   Show this help message"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Try '$0 --help' for usage."
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 
 # Set "installpkg" to use the right package manager
 installpkg(){ pacman --noconfirm --needed -S "$1" >/dev/null 2>&1; }
@@ -98,18 +119,24 @@ archPreInstall() {
 
 installPrograms() {
     echo "Installing necessary programs"
-    curl -Ls "$programsfile" | sed '/^#/d' > /tmp/programs
+    curl -Ls "$programs_file" | sed '/^#/d' > /tmp/programs
     sudo -u "$username" xargs yay -S --noconfirm < /tmp/programs
 }
 
 cloneDotfiles() {
     echo "Installing dotfiles"
-    putgitrepo "$dotfilesrepo" "/home/$username" 
+    putgitrepo "$dotfiles_repo" "/home/$username" 
     rm -rf \
         "/home/$username/README.md" \
         "/home/$username/LICENSE" \
         "/home/$username/FUNDING.yml" \
         "/home/$username/.git"
+}
+
+systemdEnable() {
+    echo "Enabling systemd services"
+    sudo systemctl enable upower.service
+    sudo systemctl enable tlp.service
 }
 
 # Downloads a gitrepo $1 and places the files in $2 only overwriting conflicts
@@ -124,7 +151,7 @@ putgitrepo() {
 }
 
 finalize() {
-    echo "All done! Assuming everything went well, you should be able to\
+    echo "All done! Assuming everything went well, you should be able to \
 log into $username and be up and running!"
 }
 
@@ -147,6 +174,8 @@ installPrograms;
 cloneDotfiles || error "Error installing dotfiles"
 
 dbus-uuidgen > /var/lib/dbus/machine-id
+
+systemdEnable || error "Unable to enable systemd services"
 
 newperms "%wheel ALL=(ALL) ALL #MARKER
 %wheel ALL=(ALL) NOPASSWD: \

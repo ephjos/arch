@@ -2,8 +2,8 @@ ISO = archlinux.iso
 IMG = archlinux.qcow2
 FMT = qcow2
 
-MEM = 8192
-CPU = 8
+MEM = 2048
+CPU = 4
 
 
 $(IMG): $(ISO)
