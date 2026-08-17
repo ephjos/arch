@@ -9,7 +9,7 @@ CPU = 4
 $(IMG): $(ISO)
 	qemu-img create -f $(FMT) -o compat=1.1 $(IMG) 20G
 
-.PHONY: clean boot dev
+.PHONY: clean boot dev install-programs
 
 clean:
 	rm -fv $(IMG)
@@ -29,4 +29,5 @@ boot: $(IMG)
 dev: $(IMG)
 	python3 -m http.server
 
-
+install-programs: programs
+	xargs -a programs yay -S --noconfirm
