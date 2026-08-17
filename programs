@@ -1,4 +1,5 @@
 bluetuith
+brave-bin
 brightnessctl
 btop
 cargo-flamegraph
@@ -9,7 +10,6 @@ dunst
 entr
 fd
 ffmpeg
-firefox
 firejail
 fontconfig
 ghostty
@@ -26,10 +26,10 @@ hyprshot
 imagemagick
 inotify-tools
 intel-media-driver
-lf
 libnotify
 libva-intel-driver
 libva-mesa-driver
+localsend-bin
 man-db
 man-pages
 mediainfo
@@ -51,6 +51,7 @@ qemu-full
 qrencode
 qt5-wayland
 qt6-wayland
+resvg
 ripgrep
 rofi
 socat
@@ -58,6 +59,7 @@ swayimg
 tlp
 tmux
 tree
+udiskie
 unrar
 unzip
 upower
@@ -71,6 +73,7 @@ wiremix
 wireplumber
 wl-clipboard
 xdg-desktop-portal-hyprland
+xdg-desktop-portal-termfilechooser
 xdg-utils
 xf86-video-amdgpu
 xf86-video-ati
