@@ -1,6 +1,7 @@
 bluetuith
 brightnessctl
 btop
+cargo-flamegraph
 dbus
 discord
 docker
@@ -43,6 +44,7 @@ noto-fonts-emoji
 openbox
 openssh
 pandoc-bin
+perf
 pipewire
 python
 qemu-full
