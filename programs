@@ -46,6 +46,7 @@ openssh
 pandoc-bin
 perf
 pipewire
+poppler
 python
 qemu-full
 qrencode
