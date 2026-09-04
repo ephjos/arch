@@ -6,7 +6,6 @@ cargo-flamegraph
 dbus
 discord
 docker
-dunst
 entr
 fd
 ffmpeg
@@ -42,6 +41,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 openbox
 openssh
+pacman-contrib
 pandoc-bin
 perf
 pipewire
@@ -51,6 +51,7 @@ qemu-full
 qrencode
 qt5-wayland
 qt6-wayland
+quickshell
 resvg
 ripgrep
 rofi
@@ -69,7 +70,6 @@ vi
 vulkan-intel
 vulkan-nouveau
 vulkan-radeon
-waybar
 wiremix
 wireplumber
 wl-clipboard
